@@ -84,6 +84,7 @@ const Login = () => {
       onClose();
     } catch (error) {
       // Handle the Axios error here
+      console.error(error);
       console.error("Axios Error:", error);
     }
   };

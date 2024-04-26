@@ -161,7 +161,7 @@
 #signup input, #login input{
   border: 2px rgb(255, 187, 0) solid;
   border-radius: 100px;
-  background-color: #FFEFBA;
+  background-color: darkred;
   margin: 0.5rem 0;
 }
 
