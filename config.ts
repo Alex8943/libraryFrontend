@@ -7,7 +7,7 @@ const config: Record<string, Config> = {
         apiEnvEndpoint: "http://localhost:3000" ,
     },
     production: {
-        apiEnvEndpoint: "https://library-backend-epsa.onrender",
+        apiEnvEndpoint: "https://library-backend-epsa.onrender.com",
     },
 };
 
