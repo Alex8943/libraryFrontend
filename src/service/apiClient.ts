@@ -2,7 +2,6 @@ import axios, { AxiosRequestConfig } from "axios";
 import { currentConfig } from '../../config';
 import { Book } from "../types/book";
 
-const endpoint = currentConfig.apiEnvEndpoint;
 
 export interface FetchResponse<T> {
   filter(arg0: (book: import("../types/book").Book) => boolean): Book[];
@@ -13,7 +12,7 @@ export interface FetchResponse<T> {
 }
 
 const axiosInstance = axios.create({
-  baseURL: endpoint,
+  baseURL: import.meta.env.VITE_API_URL
 });
 
 class ApiClient<T> {
