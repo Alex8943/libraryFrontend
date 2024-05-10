@@ -11,10 +11,7 @@ const NavBar = () => {
   return (
     <>
       <HStack justifyContent="space-between" px={1} py={1}>
-        <BurgerMenu />
-        <Image src="assets/LogoName.svg" />
-        <Spacer />
-        {(user.user) ? (
+      {(user.user) ? (
           <Usertab />
         ) : (
           <>
@@ -23,6 +20,11 @@ const NavBar = () => {
           </>
         )}
         {/* <SearchBar /> */}
+        <Image src="assets/LogoName.svg" />
+        <Spacer />
+       
+        <BurgerMenu />
+        
       </HStack>
     </>
 

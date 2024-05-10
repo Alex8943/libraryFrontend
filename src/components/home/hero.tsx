@@ -45,7 +45,7 @@ function Hero() {
                     </Box>
                     <br />
                     {user.user ? (
-                        <h3>Welcome {user.user.UserName.first_name + " " + user.user.UserName.last_name} </h3>
+                        <h3>Welcome {user.user.UserName.first_name}</h3>
                     ) : (
                         <SignUp />
                     )}
