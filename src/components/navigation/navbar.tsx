@@ -15,12 +15,13 @@ const NavBar = () => {
           <Usertab />
         ) : (
           <>
+            {/* <SearchBar /> */}
+            <Image src="assets/LogoName.svg" />
             <Login />
             <SignUp />
           </>
         )}
-        {/* <SearchBar /> */}
-        <Image src="assets/LogoName.svg" />
+
         <Spacer />
        
         <BurgerMenu />
