@@ -7,7 +7,9 @@ describe('template spec', () => {
   });
   
   it('a new user is created successfully', () => {
-    cy.get('.chakra-stack > .chakra-button:nth-child(5)').click();
+
+    cy.get('#signup_button').click();
+    
 
     cy.get('[name="first_name"]').type("Cypressfirst")
     cy.get('[name="last_name"]').type("Cypresslast")
@@ -23,4 +25,3 @@ describe('template spec', () => {
   })
 })
 
-// etc, etc

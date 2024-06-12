@@ -1,13 +1,12 @@
-import { Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, Text, VStack, UnorderedList, ListItem, Box } from '@chakra-ui/react';
+import { Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, Text, VStack, Box } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import BookCard from './bookCard';
 import FavoritedButton from './favorited';
 import { useUser } from '../user/userContext';
 import { currentConfig } from '../../../config';
-import { GiFeather } from "react-icons/gi";
+import { GiFeather } from 'react-icons/gi';
 import { Book } from '../../types/book';
-
 
 interface AuthorInfoModalProps {
     isOpen: boolean;
@@ -22,14 +21,13 @@ const AuthorInfoModal: React.FC<AuthorInfoModalProps> = ({ isOpen, onClose, auth
 
     useEffect(() => {
         if (isOpen) {
-            // Adjust the API endpoint based on your server logic
-            console.log("author: ", author);
+            console.log('author: ', author);
             axios.get(`${endpoint}/author/${author.author_id}/books`)
-                .then(response => {
-                    console.log(response)
+                .then((response) => {
+                    console.log(response);
                     setBooksByAuthor(response.data);
                 })
-                .catch(error => {
+                .catch((error) => {
                     console.error('Error fetching books by author:', error);
                 });
         }
@@ -39,27 +37,27 @@ const AuthorInfoModal: React.FC<AuthorInfoModalProps> = ({ isOpen, onClose, auth
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent bg="light.gradient">
-                <Box background='red.gradient' className='modul_banner'>
-                    <div className='feather'>
+                <Box background="red.gradient" className="modul_banner">
+                    <div className="feather">
                         <GiFeather />
                     </div>
-                    <ModalCloseButton color='light.solid' />
+                    <ModalCloseButton color="light.solid" />
                 </Box>
 
                 <ModalBody>
                     <VStack spacing={4}>
-                        <h2><b>{author.username || "No Author Information"}</b></h2>{user.user ? (
-                            <FavoritedButton author={author} user={user.user} />
+                        <h2><b>{author.username || 'No Author Information'}</b></h2>
+                        {user.user ? (
+                            <FavoritedButton id="favorite_author_button" author={author} user={user.user} />
                         ) : (<></>)}
                         <p>{author.total_books}: Published Books</p>
-                        <Box id='slider'
-                            className='overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
+                        <Box id="slider" className="overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
                             {booksByAuthor.map((book: Book, index) => (
-                                <Box key={book.book_id || index} className='inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'>
+                                <Box key={book.book_id || index} className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300">
                                     <BookCard book={book} />
                                 </Box>
                             ))}
-                        </Box>'
+                        </Box>
                     </VStack>
                 </ModalBody>
             </ModalContent>

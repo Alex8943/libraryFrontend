@@ -14,9 +14,9 @@ interface Props {
     book: Book;
     isOpen: boolean;
     onClose: () => void;
-
 }
-export const BookModal = ({ book, isOpen, onClose }:Props) => {
+
+export const BookModal = ({ book, isOpen, onClose }: Props) => {
     const [availableAmount, setAvailableAmount] = useState(book.available_amount);
     const [buttonClicked, setButtonClicked] = useState(0);
     const [firstMessage, setFirstMessage] = useState('');
@@ -39,9 +39,9 @@ export const BookModal = ({ book, isOpen, onClose }:Props) => {
                     After you confirm, you will receive an email with a receipt and tracking information.
                     This service is free for as long as you follow our one rule: 
                     Return the book in fully readable condition within 31 days. 
-                    Failure to follow  the rules will result in an invoice for a 800 kr. fine. 
+                    Failure to follow the rules will result in an invoice for an 800 kr. fine. 
                     Don’t worry, postal costs are taken care of, simply deliver the book in the same package it was delivered in, to your nearest post office. 
-                    If the packaged is damaged or lost, please inform us and a new one will be sent to you, for a price. 
+                    If the package is damaged or lost, please inform us and a new one will be sent to you, for a price. 
                     That is 50 kr. 
                     Please respect our books, and we will respect you. Enjoy!`);
                 } else if (buttonClicked === 1) {
@@ -112,9 +112,16 @@ export const BookModal = ({ book, isOpen, onClose }:Props) => {
                             {secondMessage && <Text>{secondMessage}</Text>}
                         </Box>
                         {buttonClicked < 2 && (
-                            <Button w="30%" left="30%" marginBottom="2rem"
-                                variant="primary" onClick={handleClick} isDisabled={availableAmount <= 0}>
-                                {availableAmount <= 0 ? 'Out of stock' : buttonClicked ? 'Confirm' : 'Borrow Book'}
+                            <Button
+                                id="borrow_book"
+                                w="30%"
+                                left="30%"
+                                marginBottom="2rem"
+                                variant="primary"
+                                onClick={handleClick}
+                                isDisabled={availableAmount <= 0}
+                            >
+                                {availableAmount <= 0 ? 'Out of stock' : buttonClicked ? 'Confirm test' : 'Borrow Book test'}
                             </Button>
                         )}
                     </VStack>

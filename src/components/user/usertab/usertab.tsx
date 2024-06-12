@@ -42,7 +42,7 @@ export default function usertab() {
 
     return (
         <>
-            <Image src="assets/userLogo.svg" style={avatar_img_style} onClick={onOpen} />
+            <Image id="user_tab_image" src="assets/userLogo.svg" style={avatar_img_style} onClick={onOpen} />
             <Modal isOpen={isOpen} size={'lg'} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent bg='light.gradient'>

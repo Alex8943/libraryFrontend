@@ -102,7 +102,7 @@ const Login = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={onOpen}>Log in</Button>
+      <Button id='login_button' variant="primary" onClick={onOpen}>Log in</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bg='light.gradient'>

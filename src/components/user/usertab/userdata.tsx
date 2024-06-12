@@ -156,7 +156,7 @@ export default function Userdata({ onClose }: Props) {
         <Button variant="primary" mr={3} onClick={logOut}>
           Log out
         </Button>
-        <Button variant='ghost' onClick={deleteUser}>
+        <Button id='delete_user' variant='ghost' onClick={deleteUser}>
           Delete user
         </Button>
       </ModalFooter>

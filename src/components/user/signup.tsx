@@ -119,7 +119,7 @@ const SignUp = () => {
 
 	return (
 		<>
-			<Button variant="primary" onClick={onOpen}>Sign up</Button>
+			<Button id='signup_button' variant="primary" onClick={onOpen}>Sign up</Button>
 			<Modal isOpen={isOpen} onClose={onClose}>
 				<ModalOverlay />
 				<ModalContent bg='light.gradient' >

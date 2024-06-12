@@ -1,4 +1,3 @@
-// BookmarkButton.jsx
 import { Box } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -11,48 +10,50 @@ import { User } from '../../types/user';
 interface Props {
     author: Author;
     user: User;
+    id?: string;
 }
-const FavoritedButton = ({ author, user }: Props) => {
+
+const FavoritedButton = ({ author, user, id }: Props) => {
     const [isFavorited, setIsFavorited] = useState(false);
     const endpoint = currentConfig.apiEnvEndpoint;
 
     useEffect(() => {
-        // Check if the book is already bookmarked by the user
-        // You may need to adjust the condition based on your data structure
+        // Check if the author is already favorited by the user
         axios.get(`${endpoint}/user/${user.user_id}/author/${author.author_id}`)
-        .then((response) => {
-            if(response.data.favorited_id){
-                setIsFavorited(true);
-            }else{
-                setIsFavorited(false);
-            }
-            console.log("Response", response, "IsFavorited", isFavorited);
-        }).catch((error) => {
-            console.log(error);
-        });
+            .then((response) => {
+                if (response.data.favorited_id) {
+                    setIsFavorited(true);
+                } else {
+                    setIsFavorited(false);
+                }
+                console.log("Response", response, "IsFavorited", isFavorited);
+            }).catch((error) => {
+                console.log(error);
+            });
     }, [user, author]);
 
     const toggleFavorited = () => {
-        if(isFavorited){
+        if (isFavorited) {
             axios.delete(`${endpoint}/user/${user.user_id}/author/${author.author_id}`)
-            .then((response) => {
-                console.log("IsFavorited", response);
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
-        else if(!isFavorited){
+                .then((response) => {
+                    setIsFavorited(false);
+                    console.log("Unfavorited", response);
+                }).catch((error) => {
+                    console.log(error);
+                });
+        } else {
             axios.post(`${endpoint}/user/${user.user_id}/author/${author.author_id}`, { "authToken": Cookies.get('authToken') })
-            .then((response) => {
-                console.log("IsNotFavorited", response);
-            }).catch((error) => {
-                console.log(error);
-            });
+                .then((response) => {
+                    setIsFavorited(true);
+                    console.log("Favorited", response);
+                }).catch((error) => {
+                    console.log(error);
+                });
         }
     };
 
     return (
-        <Box>
+        <Box id={id}>
             {isFavorited ? (
                 <FaHeart color="red" onClick={toggleFavorited} style={{ cursor: 'pointer' }} />
             ) : (
