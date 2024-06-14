@@ -163,6 +163,7 @@
   border-radius: 100px;
   background-color: darkred;
   margin: 0.5rem 0;
+  color: white;
 }
 
 #signup input::placeholder,  #login input::placeholder {
