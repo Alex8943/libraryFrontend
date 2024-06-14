@@ -121,7 +121,7 @@ export const BookModal = ({ book, isOpen, onClose }: Props) => {
                                 onClick={handleClick}
                                 isDisabled={availableAmount <= 0}
                             >
-                                {availableAmount <= 0 ? 'Out of stock' : buttonClicked ? 'Confirm test' : 'Borrow Book test'}
+                                {availableAmount <= 0 ? 'Out of stock' : buttonClicked ? 'Confirm' : 'Borrow Book'}
                             </Button>
                         )}
                     </VStack>

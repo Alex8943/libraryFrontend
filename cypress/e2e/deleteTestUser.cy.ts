@@ -16,7 +16,6 @@ describe('deleteTestUser', () => {
         cy.get('[name="password"]').should('have.value', "admin123");
         cy.get('[type="submit"]').click();
 
-
         cy.get('#user_tab_image').click();
         cy.get('#delete_user').click();
     
