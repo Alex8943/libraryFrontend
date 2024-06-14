@@ -53,7 +53,7 @@ export default function usertab() {
                     </Box>
                     <br /> <h2 className='center_this'>{user.user.UserName.first_name + " " + user.user.UserName.last_name}</h2><br />
                     <div style={button_row_style}>
-                        <Button onClick={handleTabChange} name='bookmarks'>Bookmarks</Button>
+                        <Button onClick={handleTabChange} name='bookmarks'>Favorite books</Button>
                         <Button onClick={handleTabChange} name='borrowed'>Borrowed</Button>
                         <Button onClick={handleTabChange} name='authors'>Authors</Button>
                         <Button onClick={handleTabChange} name='reviews'>Reviews</Button>

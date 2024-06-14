@@ -37,7 +37,7 @@ export default function UserBookmarked() {
 
     return (
         <>
-            <ModalHeader fontWeight="bold">You have bookmarked these</ModalHeader>
+            <ModalHeader fontWeight="bold">Books favorited by you</ModalHeader>
             <ModalCloseButton color='light.solid' />
             <ModalBody>
                 {bookmarks.map((bookmark: bookmarkAllUser, index) => (
