@@ -35,7 +35,6 @@ function App() {
             <GridItem gridArea="main">
               <Home />
             </GridItem>
-
             <GridItem gridArea="footer" >
               <FooterBar />
             </GridItem>
