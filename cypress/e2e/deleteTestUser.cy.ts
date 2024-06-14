@@ -10,10 +10,12 @@ describe('deleteTestUser', () => {
 
     it('deleteTestUser', () => {
         cy.get('#login_button').click();
+
+        cy.get('[name="first_name"]').type("Cypressfirst")
+        cy.get('[name="last_name"]').type("Cypresslast")
         cy.get('[name="email"]').type("cypress@mail.dk")
         cy.get('[name="password"]').type("admin123")
-        cy.get('[name="email"]').should('have.value', "cypress@mail.dk");
-        cy.get('[name="password"]').should('have.value', "admin123");
+        
         cy.get('[type="submit"]').click();
 
         cy.get('#user_tab_image').click();

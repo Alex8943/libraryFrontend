@@ -10,7 +10,6 @@ describe('template spec', () => {
 
     cy.get('#signup_button').click();
     
-
     cy.get('[name="first_name"]').type("Cypressfirst")
     cy.get('[name="last_name"]').type("Cypresslast")
     cy.get('[name="email"]').type("cypress@mail.dk")
